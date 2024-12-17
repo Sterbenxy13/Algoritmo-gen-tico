@@ -6,7 +6,7 @@ import fitness
 class Individual:
 
     def __generateBinary(self, numberOfGenes: int) -> str:
-        result = ""
+        result: str = ""
 
         for d in range(numberOfGenes):
             result += str(randint(0, 1))
@@ -15,14 +15,14 @@ class Individual:
 
     def __convertDecimalToBinary(self) -> str:
 
-        result = ""
+        result: str = ""
 
-        powerOfTwo = 0
+        powerOfTwo: int = 0
 
         while self.__decimalValue - (2 ** (powerOfTwo + 1)) >= 0:
             powerOfTwo += 1
 
-        decimal = self.__decimalValue
+        decimal: int = self.__decimalValue
 
         while powerOfTwo >= 0:
             if decimal - (2 ** powerOfTwo) >= 0:
@@ -98,21 +98,4 @@ def generatePopulation(numberOfDigits, NumberOfIndividuals):
         result.append(Individual(numberOfDigits, True))
 
     return result
-
-
-'''
-@overload
-    def __init__(self, decimal: int) -> None:
-        self.__binaryValue = self.__convertDecimalToBinary()
-        self.__decimalValue = decimal
-        self.__fitness = fitness.getFitness(self.__decimalValue)
-
-    @overload
-    def _(self, binary: str) -> None:
-        self.__binaryValue = binary
-        self.__decimalValue = self.__convertBinaryToDecimal()
-        self.__fitness = fitness.getFitness(self.__decimalValue)
-'''
-
-
 

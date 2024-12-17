@@ -24,11 +24,7 @@ def massiveTest(population: Population) -> None:
         
 
         avpop = population.getPopulationBin()
-
-        #if fit[0] == fit[1]:
-            #print(i)
-            #break
-            #pass
+        
     else:
         print("gen: ", 50)
 
